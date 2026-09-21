@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 
 export function Preloader() {
   const [progress, setProgress] = useState(0);
@@ -31,13 +31,7 @@ export function Preloader() {
     >
       <div className="relative">
         <div className="absolute inset-0 -m-8 rounded-full bg-primary/30 blur-3xl animate-pulse-glow" />
-        <img
-          src={catAvatar}
-          alt="Opera AI space cat loading"
-          width={816}
-          height={816}
-          className="relative h-32 w-32 animate-float drop-shadow-[0_0_30px_var(--glow)]"
-        />
+        <OperaLogoMark className="relative h-32 w-32" label="Opera AI loading" />
       </div>
       <p className="mt-8 font-display text-sm font-semibold tracking-[0.35em] uppercase text-muted-foreground">
         Opera AI

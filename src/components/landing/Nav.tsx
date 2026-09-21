@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Contrast, ImageIcon, LayoutDashboard, Palette, Volume2, VolumeX, Code2 } from "lucide-react";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { useSound } from "@/hooks/use-sound";
 import { useLang } from "@/lib/i18n";
@@ -35,7 +35,7 @@ export function Nav() {
         }`}
       >
         <a href="#top" className="flex items-center gap-3" onClick={click}>
-          <img src={catAvatar} alt="" width={816} height={816} className="h-9 w-9 rounded-full ring-1 ring-glass-border" />
+          <OperaLogoMark className="h-9 w-9" />
           <span className="font-display text-lg font-800 font-bold tracking-tight">
             Opera<span className="text-primary">AI</span>
           </span>

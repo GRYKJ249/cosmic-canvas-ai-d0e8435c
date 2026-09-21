@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       { title: "Opera AI — Build at the speed of orbit" },
       { name: "description", content: "Opera AI: a spatial AI ecosystem with a 3D Earth landing, 100-palette color engine, AI chat workspace, cloud IDE and creative studio. Developed by Mahgoub Abdallah Mohammed Osman." },
       { property: "og:title", content: "Opera AI — Build at the speed of orbit" },
-      { property: "og:description", content: "Cloud intelligence, immersive 3D environments, enterprise-grade security and multi-modal creation — guided by the Opera AI space cat." },
+      { property: "og:description", content: "Cloud intelligence, immersive 3D environments, enterprise-grade security and multi-modal creation by Opera AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { SendHorizonal } from "lucide-react";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 
-type Msg = { role: "user" | "cat"; text: string };
+type Msg = { role: "user" | "assistant"; text: string };
 
 const replies: Record<string, string> = {
-  hello: "Hi there, explorer! I'm the Opera AI space cat. Ask me about the workspace, the themes, or the studio.",
+  hello: "Hi there, explorer! I'm Opera AI. Ask me about the workspace, the themes, or the studio.",
   theme: "There are exactly 100 palettes — 10 families × 10 hues. Scroll to the swatch grid and try Cyber Neon Magenta.",
   code: "The workspace runs JavaScript and Python in a browser sandbox with a live terminal. Type /fix and I'll patch your bugs.",
   image: "The studio turns text into art with style presets, negative prompts and seed control. Inpainting included.",
@@ -16,13 +16,13 @@ const replies: Record<string, string> = {
 function answer(q: string) {
   const s = q.toLowerCase();
   for (const k of Object.keys(replies)) if (s.includes(k)) return replies[k];
-  if (s.includes("cat")) return "That's me! White and blue, spacesuit-certified, and always curious.";
+  if (s.includes("logo")) return "The Opera AI mark combines an intelligent core with two dynamic orbital paths.";
   return "Great question. This is a preview sandbox — create an account to talk to the full multi-model engine with streaming, code execution and image generation.";
 }
 
 export function Sandbox() {
   const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "cat", text: "Welcome aboard! Try asking about themes, code, images or security." },
+    { role: "assistant", text: "Welcome aboard! Try asking about themes, code, images or security." },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -43,12 +43,12 @@ export function Sandbox() {
     setTimeout(() => {
       setTyping(false);
       let i = 0;
-      setMsgs((m) => [...m, { role: "cat", text: "" }]);
+        setMsgs((m) => [...m, { role: "assistant", text: "" }]);
       const id = setInterval(() => {
         i += 2;
         setMsgs((m) => {
           const copy = [...m];
-          copy[copy.length - 1] = { role: "cat", text: full.slice(0, i) };
+          copy[copy.length - 1] = { role: "assistant", text: full.slice(0, i) };
           return copy;
         });
         if (i >= full.length) clearInterval(id);
@@ -67,9 +67,9 @@ export function Sandbox() {
 
         <div className="reveal glass-strong overflow-hidden rounded-3xl">
           <div className="flex items-center gap-3 border-b border-glass-border px-5 py-3">
-            <img src={catAvatar} alt="" width={816} height={816} loading="lazy" className={`h-9 w-9 rounded-full ${typing ? "animate-pulse-glow" : ""}`} />
+            <OperaLogoMark className={`h-9 w-9 ${typing ? "animate-pulse-glow" : ""}`} />
             <div>
-              <p className="text-sm font-semibold">Space Cat</p>
+              <p className="text-sm font-semibold">Opera AI</p>
               <p className="font-mono text-[11px] text-muted-foreground">{typing ? "thinking…" : "online · preview mode"}</p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export function Sandbox() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about themes, code, images…"
-              aria-label="Message the space cat"
+              aria-label="Message Opera AI"
               className="min-w-0 flex-1 rounded-full bg-space-deep/50 px-4 py-2.5 text-sm outline-none ring-1 ring-glass-border placeholder:text-muted-foreground focus:ring-primary"
             />
             <button type="submit" aria-label="Send" className="btn-hero !p-3">

@@ -5,7 +5,7 @@ const items = [
   { quote: "The split-screen workspace changed how I debug. I talk to the assistant, it patches the file, the terminal confirms. Done.", name: "Amina K.", role: "Full-stack developer, beta cohort" },
   { quote: "I switched palettes forty times in the first ten minutes. Every single one felt intentional — that never happens.", name: "Diego R.", role: "Product designer" },
   { quote: "OTP verification, session revocation, audit logs — this is the first AI playground I'd let my team log into.", name: "Priya S.", role: "Security engineer" },
-  { quote: "The space cat explaining features while a real planet spins behind it? My kids now think I work at NASA.", name: "Tomás L.", role: "Indie hacker" },
+  { quote: "The dimensional Opera mark moving above a real planet makes the whole product feel like a serious new company.", name: "Tomás L.", role: "Indie hacker" },
 ];
 
 export function Testimonials() {

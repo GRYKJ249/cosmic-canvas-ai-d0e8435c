@@ -1,4 +1,4 @@
-import catHero from "@/assets/space-cat-hero.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 
 const cols = [
   { title: "Platform", links: ["AI Chat", "Code Workspace", "Image Studio", "Theme Engine"] },
@@ -26,7 +26,7 @@ export function Footer() {
                 <a href="#themes" className="btn-ghost">Browse 100 themes</a>
               </div>
             </div>
-            <img src={catHero} alt="" width={1024} height={1024} loading="lazy" className="mx-auto w-40 animate-float drop-shadow-[0_0_30px_var(--glow)] sm:w-56" />
+            <OperaLogoMark className="mx-auto h-40 w-40 sm:h-56 sm:w-56" label="Opera AI" />
           </div>
         </div>
 

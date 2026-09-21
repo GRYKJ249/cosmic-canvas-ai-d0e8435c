@@ -3,8 +3,7 @@ import {
   Brain, Code2, Fingerprint, GitBranch, Image as ImageIcon, KeyRound, Layers, Lock, Mic, Orbit,
   Play, ScanEye, ShieldCheck, Sparkles, TerminalSquare, Wand2,
 } from "lucide-react";
-import catCoding from "@/assets/space-cat-coding.png";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 
 type Feature = { icon: LucideIcon; title: string; body: string; tip?: string };
 
@@ -28,10 +27,10 @@ function FeatureGrid({ items }: { items: Feature[] }) {
   );
 }
 
-function MascotSays({ children, img = catAvatar, flip = false }: { children: React.ReactNode; img?: string; flip?: boolean }) {
+function BrandSays({ children, flip = false }: { children: React.ReactNode; flip?: boolean }) {
   return (
     <div className={`reveal flex items-end gap-4 ${flip ? "flex-row-reverse" : ""}`}>
-      <img src={img} alt="Space cat guide" width={816} height={816} loading="lazy" className="h-20 w-20 shrink-0 animate-float-slow drop-shadow-[0_0_20px_var(--glow)] sm:h-28 sm:w-28" />
+      <OperaLogoMark className="h-20 w-20 shrink-0 sm:h-28 sm:w-28" label="Opera AI" />
       <div className={`glass-strong relative max-w-md rounded-3xl px-5 py-4 text-sm leading-relaxed ${flip ? "rounded-br-md" : "rounded-bl-md"}`}>
         {children}
       </div>
@@ -59,15 +58,14 @@ export function PlatformSection() {
           body="Authentication, spatial UI, conversational intelligence, a live code workspace and a creative studio — twenty features in each, one hundred in total."
         />
         <div className="mb-12 flex justify-center">
-          <MascotSays>
-            Hey explorer! I'm your guide. Scroll with me and I'll walk you through every layer of Opera AI —
-            from the login gateway to the image studio.
-          </MascotSays>
+          <BrandSays>
+            Meet Opera AI: one intelligent core connecting every layer — from conversational tools to the image studio.
+          </BrandSays>
         </div>
         <FeatureGrid
           items={[
             { icon: Orbit, title: "Spatial landing experience", body: "A real-time WebGL Earth, orbital code fragments and cursor-reactive parallax layers set the stage.", tip: "Three.js + React Three Fiber, low-power mode on mobile" },
-            { icon: Brain, title: "Multi-model chat engine", body: "Streaming responses, thinking indicators and an expressive mascot avatar that reacts while the model works." },
+             { icon: Brain, title: "Multi-model chat engine", body: "Streaming responses, thinking indicators and a focused assistant identity that responds while the model works." },
             { icon: Code2, title: "Cloud IDE workspace", body: "File tree, multi-tab editor, browser sandbox and a live terminal — split-screen with the assistant." },
             { icon: ImageIcon, title: "Creative studio", body: "Text-to-image, inpainting, outpainting, batch runs and a community gallery with one-click prompt copying." },
             { icon: ShieldCheck, title: "Enterprise-grade security", body: "OTP verification, hashed credentials, session tracking and role-based access control from day one." },
@@ -100,8 +98,8 @@ export function WorkspaceSection() {
               <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-relaxed text-foreground/90">
 {`import { opera } from "@opera/sdk";
 
-const cat = await opera.agent("space-cat");
-const answer = await cat.ask("/optimize", {
+const agent = await opera.agent("core");
+const answer = await agent.ask("/optimize", {
   file: "globe.ts",
   goal: "60fps on mobile",
 });
@@ -117,7 +115,7 @@ console.log(answer.tokens); // 1,284`}
                 </p>
               </div>
             </div>
-            <img src={catCoding} alt="Space cat coding on a holographic laptop" width={1024} height={1024} loading="lazy" className="absolute -bottom-10 -right-6 hidden w-44 animate-float drop-shadow-[0_0_30px_var(--glow)] sm:block" />
+            <OperaLogoMark className="absolute -bottom-10 -right-6 hidden h-44 w-44 sm:block" label="Opera AI" />
           </div>
           <div className="order-1 lg:order-2">
             <FeatureGrid
@@ -145,10 +143,10 @@ export function SecuritySection() {
           body="Real accounts, real verification. Every session is tracked, every credential hashed, every role checked server-side."
         />
         <div className="mb-12 flex justify-center">
-          <MascotSays flip>
+          <BrandSays flip>
             Six-digit codes land in your inbox in seconds, and you can see — and revoke — every device that's
-            logged in. I take security as seriously as I take naps.
-          </MascotSays>
+            logged in. Opera AI keeps control visible and close at hand.
+          </BrandSays>
         </div>
         <FeatureGrid
           items={[
@@ -179,7 +177,7 @@ export function StudioSection() {
           <div className="reveal glass-strong rounded-3xl p-6">
             <label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Prompt</label>
             <p className="mt-2 rounded-2xl bg-space-deep/60 p-4 font-mono text-sm text-foreground/90">
-              a white and blue space cat drifting past a glowing nebula, cinematic lighting, ultra-detailed
+              an orbital research station drifting past a glowing nebula, cinematic lighting, ultra-detailed
               <span className="animate-blink">▍</span>
             </p>
             <div className="mt-4 flex flex-wrap gap-2">

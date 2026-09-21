@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowRight, Sparkle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import catHero from "@/assets/space-cat-hero.png";
+import { OperaLogo3D } from "@/components/brand/OperaLogo3D";
 
 export function Hero() {
   return (
@@ -40,18 +40,12 @@ export function Hero() {
 
         <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
           <div className="absolute inset-0 -m-6 rounded-full bg-primary/25 blur-3xl animate-pulse-glow" />
-          <img
-            src={catHero}
-            alt="Opera AI space cat mascot waving in a futuristic spacesuit"
-            width={1024}
-            height={1024}
-            className="relative w-full animate-float drop-shadow-[0_20px_50px_var(--glow)]"
-          />
+          <OperaLogo3D />
           <div className="absolute -left-4 top-10 glass rounded-2xl px-3 py-2 font-mono text-[11px] animate-float-slow">
             <span className="text-primary">$</span> opera deploy --orbit
           </div>
           <div className="absolute -right-2 bottom-16 glass rounded-2xl px-3 py-2 font-mono text-[11px] animate-float [animation-delay:-3s]">
-            ✓ 100 palettes loaded
+            ✓ intelligence in motion
           </div>
         </div>
       </div>
