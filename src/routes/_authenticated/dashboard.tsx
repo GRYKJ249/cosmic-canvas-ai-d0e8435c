@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { BadgeCheck, Code2, Cpu, ImageIcon, Loader2, Save, ShieldCheck, Sparkles } from "lucide-react";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useLang } from "@/lib/i18n";
@@ -74,7 +74,7 @@ function Dashboard() {
       <div className="mx-auto max-w-4xl">
         <header className="flex flex-wrap items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-3">
-            <img src={catAvatar} alt="" width={816} height={816} className="h-10 w-10 rounded-full ring-1 ring-glass-border" />
+            <OperaLogoMark className="h-10 w-10" />
             <span className="font-display text-lg font-bold">
               Opera<span className="text-primary">AI</span>
             </span>
@@ -88,7 +88,11 @@ function Dashboard() {
 
         <div className="glass-strong mt-8 rounded-3xl p-8">
           <div className="flex flex-wrap items-center gap-4">
-            <img src={profile?.avatar_url || catAvatar} alt="" className="h-16 w-16 rounded-full object-cover ring-1 ring-glass-border" />
+            {profile?.avatar_url ? (
+              <img src={profile.avatar_url} alt="" className="h-16 w-16 rounded-full object-cover ring-1 ring-glass-border" />
+            ) : (
+              <OperaLogoMark className="h-16 w-16" label="Opera AI" />
+            )}
             <div className="min-w-0">
               <h1 className="font-display text-2xl font-bold">
                 {t("Welcome", "أهلاً")}, {profile?.display_name || user?.email}

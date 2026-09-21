@@ -2,7 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useParams } from "@tanstack
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ImageIcon, MessageSquare, Menu, Plus, Trash2, X, LayoutDashboard } from "lucide-react";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useLang } from "@/lib/i18n";
@@ -79,7 +79,7 @@ function ChatLayout() {
       >
         <div className="flex items-center justify-between gap-2 p-4">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={catAvatar} alt="" className="h-8 w-8 rounded-full ring-1 ring-glass-border" />
+            <OperaLogoMark className="h-8 w-8" />
             <span className="font-display text-base font-bold">
               Opera<span className="text-primary">AI</span>
             </span>

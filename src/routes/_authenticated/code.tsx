@@ -26,7 +26,7 @@ import {
   Wand2,
   X,
 } from "lucide-react";
-import catCoding from "@/assets/space-cat-coding.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useLang } from "@/lib/i18n";
@@ -591,7 +591,7 @@ function CodeWorkspace() {
         <button type="button" onClick={() => setSidebarOpen(true)} className="rounded p-1.5 hover:bg-accent md:hidden" aria-label="menu">
           <Menu className="h-5 w-5" />
         </button>
-        <img src={catCoding} alt="" className="hidden h-7 w-7 rounded-full object-cover sm:block" />
+        <OperaLogoMark className="hidden h-7 w-7 sm:block" />
         <span className="hidden text-sm font-semibold sm:block">Opera AI · {t("Code", "الأكواد")}</span>
         <div className="mx-1 hidden h-5 w-px bg-glass-border sm:block" />
         <button
@@ -706,7 +706,7 @@ function CodeWorkspace() {
               </>
             ) : (
               <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
-                <img src={catCoding} alt="" className="h-28 w-28 rounded-2xl object-cover opacity-90" />
+                <OperaLogoMark className="h-28 w-28 opacity-90" label="Opera AI" />
                 <p className="text-sm text-muted-foreground">{t("Pick a file or create a new one to start coding.", "اختر ملفاً أو أنشئ ملفاً جديداً لتبدأ البرمجة.")}</p>
               </div>
             )}
@@ -797,7 +797,7 @@ function CodeWorkspace() {
                 <Markdown content={aiOutput} />
               ) : (
                 <div className="flex flex-col items-center gap-2 pt-8 text-center text-muted-foreground">
-                  <img src={catCoding} alt="" className="h-20 w-20 rounded-2xl object-cover" />
+                  <OperaLogoMark className="h-20 w-20" label="Opera AI" />
                   <p className="text-xs">{t("Explain, refactor or fix your code with one click.", "اشرح كودك أو حسّنه أو أصلحه بنقرة واحدة.")}</p>
                 </div>
               )}

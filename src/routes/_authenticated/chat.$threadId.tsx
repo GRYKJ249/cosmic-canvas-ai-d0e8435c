@@ -5,7 +5,7 @@ import { DefaultChatTransport, type UIMessage } from "ai";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUp, Brain, ImagePlus, Loader2, Sparkles, Square } from "lucide-react";
 import { toast } from "sonner";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { Markdown } from "@/components/chat/Markdown";
 import { ImageCard } from "@/components/chat/ImageCard";
 import { supabase } from "@/integrations/supabase/client";
@@ -206,7 +206,7 @@ function Thread({ threadId, initial }: { threadId: string; initial: LoadedThread
       .filter((turn) => turn.anchor === index)
       .map((turn) => (
         <div key={turn.id} className="flex gap-3">
-          <img src={catAvatar} alt="" className="h-8 w-8 shrink-0 rounded-full ring-1 ring-glass-border" />
+          <OperaLogoMark className="h-8 w-8 shrink-0" />
           <ImageCard
             prompt={turn.prompt}
             dataUrl={turn.dataUrl}
@@ -223,7 +223,7 @@ function Thread({ threadId, initial }: { threadId: string; initial: LoadedThread
         <div className="mx-auto max-w-3xl space-y-6">
           {messages.length === 0 && imageTurns.length === 0 && (
             <div className="glass-strong mt-10 rounded-3xl p-10 text-center">
-              <img src={catAvatar} alt="" className="mx-auto h-20 w-20 rounded-full ring-1 ring-glass-border" />
+              <OperaLogoMark className="mx-auto h-20 w-20" label="Opera AI" />
               <h1 className="mt-5 font-display text-2xl font-bold">
                 {t("How can I help you today?", "كيف أقدر أساعدك اليوم؟")}
               </h1>
@@ -236,7 +236,7 @@ function Thread({ threadId, initial }: { threadId: string; initial: LoadedThread
               <div className="mt-6 grid gap-2 sm:grid-cols-2">
                 {[
                   t("Explain React Server Components", "اشرح لي مكونات الخادم في React"),
-                  t("/image a space cat surfing a nebula", "ولد صورة قط فضائي يركب سديماً"),
+                   t("/image an orbital city above Earth", "ولد صورة مدينة مدارية فوق الأرض"),
                   t("Debug this SQL query", "صحّح استعلام SQL هذا"),
                   t("Plan a 7-day study schedule", "خطّط جدول مذاكرة لسبعة أيام"),
                 ].map((sample) => (
@@ -272,7 +272,7 @@ function Thread({ threadId, initial }: { threadId: string; initial: LoadedThread
               <div key={message.id}>
                 <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
                   {!isUser && (
-                    <img src={catAvatar} alt="" className="h-8 w-8 shrink-0 rounded-full ring-1 ring-glass-border" />
+                    <OperaLogoMark className="h-8 w-8 shrink-0" />
                   )}
                   <div className={`min-w-0 max-w-[85%] ${isUser ? "text-end" : ""}`}>
                     {reasoning && !isUser && (
@@ -334,7 +334,7 @@ function Thread({ threadId, initial }: { threadId: string; initial: LoadedThread
             }}
             dir={lang === "ar" ? "rtl" : "ltr"}
             rows={1}
-            placeholder={t("Message Opera AI… or /image a space cat", "اكتب رسالتك لأوبرا… أو /image قط فضائي")}
+            placeholder={t("Message Opera AI… or /image an orbital city", "اكتب رسالتك لأوبرا… أو /image مدينة مدارية")}
             className="max-h-40 min-h-[44px] flex-1 resize-none bg-transparent px-3 py-2.5 text-sm outline-none"
           />
           {busy ? (

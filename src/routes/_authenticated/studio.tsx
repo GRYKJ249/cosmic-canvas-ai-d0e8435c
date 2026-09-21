@@ -21,7 +21,7 @@ import {
   X,
 } from "lucide-react";
 import { toast } from "sonner";
-import catAvatar from "@/assets/space-cat-avatar.png";
+import { OperaLogoMark } from "@/components/brand/OperaLogoMark";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -88,7 +88,7 @@ const RATIOS: { name: RatioName; label: string; size: string; frame: string }[] 
 ];
 
 const IDEAS = [
-  "A white space cat tending a glowing garden inside an orbital station",
+  "A silver observatory tending a glowing garden inside an orbital station",
   "An ancient library floating above Saturn, filled with tiny astronauts",
   "A bioluminescent city hidden beneath an alien ocean at midnight",
   "A lunar fashion portrait with crystal fabric and Earth in the distance",
@@ -308,7 +308,7 @@ function StudioPage() {
             <Link to="/dashboard" aria-label={t("Back to account", "العودة إلى الحساب")} className="text-muted-foreground transition hover:text-foreground">
               <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
             </Link>
-            <img src={catAvatar} alt="" className="h-10 w-10 rounded-full ring-1 ring-glass-border" />
+            <OperaLogoMark className="h-10 w-10" />
             <div className="min-w-0">
               <p className="font-display text-sm font-bold">Opera AI</p>
               <p className="truncate text-xs text-muted-foreground">{t("Creative Studio", "الاستوديو الإبداعي")}</p>
@@ -329,10 +329,10 @@ function StudioPage() {
             </div>
             <h1 className="text-4xl font-extrabold sm:text-5xl">{t("Turn ideas into worlds.", "حوّل الأفكار إلى عوالم.")}</h1>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              {t("Shape the scene, choose a visual language, and let the Space Cat bring it into orbit.", "صمّم المشهد واختر أسلوبه، ودع قط الفضاء ينقله إلى المدار.")}
+              {t("Shape the scene, choose a visual language, and let Opera AI bring it into orbit.", "صمّم المشهد واختر أسلوبه، ودع أوبرا الذكي ينقله إلى المدار.")}
             </p>
           </div>
-          <img src={catAvatar} alt={t("Opera AI Space Cat", "قط فضاء أوبرا الذكي")} className="hidden h-24 w-24 animate-float rounded-full ring-1 ring-glass-border md:block" />
+          <OperaLogoMark className="hidden h-24 w-24 md:block" label="Opera AI" />
         </section>
 
         <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(360px,1.08fr)]">
@@ -347,7 +347,7 @@ function StudioPage() {
             <Textarea
               value={prompt}
               onChange={(event) => setPrompt(event.target.value.slice(0, 1200))}
-              placeholder={t("A space cat exploring a crystal moon…", "قط فضائي يستكشف قمراً من الكريستال…")}
+              placeholder={t("An orbital laboratory exploring a crystal moon…", "مختبر مداري يستكشف قمراً من الكريستال…")}
               className="mt-4 min-h-36 resize-none rounded-xl bg-background/35 p-4 leading-relaxed"
             />
             <div className="mt-3 flex flex-wrap gap-2">
@@ -432,7 +432,7 @@ function StudioPage() {
               {result?.status === "loading" && (
                 <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 border-t border-glass-border bg-background/80 px-4 py-3 text-sm backdrop-blur-xl">
                   <Loader2 className="h-4 w-4 animate-spin text-primary" />
-                  <span>{t("Space Cat is rendering every detail…", "قط الفضاء يرسم كل التفاصيل…")}</span>
+                   <span>{t("Opera AI is rendering every detail…", "أوبرا الذكي يرسم كل التفاصيل…")}</span>
                 </div>
               )}
               {result?.status === "error" && (
