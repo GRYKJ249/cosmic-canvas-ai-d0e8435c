@@ -61,6 +61,7 @@
   --animate-orbit: orbit 18s linear infinite;
   --animate-shimmer: shimmer 2.4s linear infinite;
   --animate-blink: blink 1.1s steps(2) infinite;
+  --animate-brand-turn: brand-turn 10s linear infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(-2deg); }
@@ -80,6 +81,10 @@
   }
   @keyframes blink {
     to { opacity: 0; }
+  }
+  @keyframes brand-turn {
+    from { transform: rotateX(62deg) rotateZ(0deg); }
+    to { transform: rotateX(62deg) rotateZ(360deg); }
   }
 }
 
@@ -190,6 +195,58 @@
     radial-gradient(70% 60% at 50% 100%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 70%);
 }
 
+/* ---------- Opera AI dimensional identity ---------- */
+.opera-logo-mark {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  isolation: isolate;
+  border-radius: 50%;
+  perspective: 700px;
+  filter: drop-shadow(0 0 16px color-mix(in oklab, var(--glow) 55%, transparent));
+}
+.opera-logo-ring,
+.opera-logo-core {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+}
+.opera-logo-ring--outer {
+  inset: 7%;
+  border: max(3px, 0.11em) solid transparent;
+  background:
+    linear-gradient(var(--space-deep), var(--space-deep)) padding-box,
+    linear-gradient(135deg, var(--primary), var(--foreground) 48%, var(--accent)) border-box;
+  box-shadow: inset 0 0 18px color-mix(in oklab, var(--primary) 28%, transparent), 0 0 22px color-mix(in oklab, var(--accent) 26%, transparent);
+  transform: rotateY(-18deg);
+}
+.opera-logo-ring--inner {
+  inset: 25% -1%;
+  border: max(2px, 0.075em) solid color-mix(in oklab, var(--accent) 88%, var(--foreground));
+  transform: rotateX(62deg) rotateZ(-28deg);
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+.opera-logo-core {
+  inset: 37%;
+  background: linear-gradient(145deg, var(--foreground), var(--primary) 42%, var(--accent));
+  box-shadow: 0 0 18px color-mix(in oklab, var(--primary) 80%, transparent);
+}
+.opera-logo-mark--animated .opera-logo-ring--inner { animation: var(--animate-brand-turn); }
+.opera-logo-mark--animated { transition: transform 0.35s ease, filter 0.35s ease; }
+.opera-logo-mark--animated:hover { transform: rotateY(16deg) scale(1.04); filter: drop-shadow(0 0 24px var(--glow)); }
+.opera-logo-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 300px;
+  cursor: grab;
+  filter: drop-shadow(0 26px 50px color-mix(in oklab, var(--glow) 42%, transparent));
+}
+.opera-logo-stage:active { cursor: grabbing; }
+
 @utility btn-hero {
   position: relative;
   display: inline-flex;
@@ -282,4 +339,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; opacity: 1; transform: none; }
+  .opera-logo-mark--animated .opera-logo-ring--inner { animation: none; }
 }
