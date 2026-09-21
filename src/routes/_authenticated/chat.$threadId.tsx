@@ -15,6 +15,16 @@ import { detectImageRequest } from "@/lib/image-intent";
 import { streamImage } from "@/lib/stream-image";
 
 export const Route = createFileRoute("/_authenticated/chat/$threadId")({
+  head: () => ({
+    meta: [
+      { title: "Conversation — Opera AI" },
+      { name: "description", content: "Continue a private, browser-saved conversation with Opera AI." },
+      { property: "og:title", content: "Conversation — Opera AI" },
+      { property: "og:description", content: "Continue a private, browser-saved conversation with Opera AI." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: ThreadPage,
 });
 

@@ -6,6 +6,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 
 export const Route = createFileRoute("/_authenticated/chat/")({
+  head: () => ({
+    meta: [
+      { title: "New conversation — Opera AI" },
+      { name: "description", content: "Start a saved conversation with the Opera AI assistant." },
+      { property: "og:title", content: "New conversation — Opera AI" },
+      { property: "og:description", content: "Start a saved conversation with the Opera AI assistant." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: ChatIndex,
 });
 

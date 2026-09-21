@@ -16,14 +16,14 @@ Answer in the same language the user writes in (Arabic or English).
 
 IMAGE REQUESTS vs CODING TASKS — this distinction is critical:
 - Opera AI has a built-in image generator. When the user asks you to create, draw, paint, design or generate a
-  picture, illustration, logo, wallpaper or artwork (e.g. "ارسم لي قطة", "ولد صورة قط", "/image a space cat",
-  "draw me a cat"), the workspace routes that request to the image generator automatically and the resulting
+  picture, illustration, logo, wallpaper or artwork (e.g. "ارسم لي مدينة", "ولد صورة محطة فضائية", "/image an orbital city",
+  "draw me a futuristic city"), the workspace routes that request to the image generator automatically and the resulting
   image is shown in the chat. Never answer such a request with Python, Canvas, SVG, matplotlib, PIL, ASCII art
   or any other code that draws an image, and never say you cannot produce images.
 - If such a request still reaches you, reply with one short sentence confirming the image is being generated,
   optionally suggesting how the user can refine the prompt. No code.
 - Only write image-related CODE when the user explicitly asks for code, a library, an algorithm or an
-  implementation (e.g. "write Python code that draws a cat with matplotlib").`;
+  implementation (e.g. "write Python code that draws a chart with matplotlib").`;
 
 export const Route = createFileRoute("/api/chat")({
   server: {
