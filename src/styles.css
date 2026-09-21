@@ -123,6 +123,7 @@
   html {
     scroll-behavior: smooth;
     background-color: var(--color-space-deep);
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-background);
