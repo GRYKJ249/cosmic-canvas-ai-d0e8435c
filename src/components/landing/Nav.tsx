@@ -61,7 +61,7 @@ export function Nav() {
             aria-label={enabled ? "Disable sound cues" : "Enable sound cues"}
             aria-pressed={enabled}
             onClick={() => { setEnabled(!enabled); }}
-            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+            className="hidden rounded-full p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground sm:inline-flex"
           >
             {enabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
           </button>
@@ -70,7 +70,7 @@ export function Nav() {
             aria-label="Toggle high-contrast mode"
             aria-pressed={highContrast}
             onClick={() => { click(); setHighContrast(!highContrast); }}
-            className={`rounded-full p-2 transition-colors hover:bg-primary/10 ${highContrast ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+            className={`hidden rounded-full p-2 transition-colors hover:bg-primary/10 sm:inline-flex ${highContrast ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
           >
             <Contrast className="h-4 w-4" />
           </button>
@@ -82,15 +82,15 @@ export function Nav() {
           >
             {lang === "ar" ? "EN" : "ع"}
           </button>
-          <a href="#themes" onClick={click} className="btn-ghost !px-3 !py-2 text-xs md:!px-4">
+          <a href="#themes" onClick={click} className="btn-ghost hidden !px-3 !py-2 text-xs md:!inline-flex md:!px-4">
             <Palette className="h-4 w-4" />
             <span className="hidden sm:inline">100 Themes</span>
           </a>
-          <Link to="/code" onClick={click} className="btn-ghost !px-3 !py-2 text-xs md:!px-4">
+          <Link to="/code" onClick={click} className="btn-ghost hidden !px-3 !py-2 text-xs sm:!inline-flex md:!px-4">
             <Code2 className="h-4 w-4" />
             <span className="hidden lg:inline">{t("Code", "الأكواد")}</span>
           </Link>
-          <Link to="/studio" onClick={click} className="btn-ghost !px-3 !py-2 text-xs md:!px-4">
+          <Link to="/studio" onClick={click} className="btn-ghost hidden !px-3 !py-2 text-xs sm:!inline-flex md:!px-4">
             <ImageIcon className="h-4 w-4" />
             <span className="hidden lg:inline">{t("Studio", "الاستوديو")}</span>
           </Link>
